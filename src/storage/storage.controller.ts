@@ -1,9 +1,11 @@
 import { Controller, Delete, Get, HttpStatus, Post, Res } from '@nestjs/common';
 import { StorageService } from './storage.service';
+import { StorageType } from '@sclable/nestjs-storage';
 import { Response } from 'express';
 
 @Controller('storage')
 export class StorageController {
+  private readonly disk = StorageType.DUMMY;
   private readonly bucket = 'test';
   private readonly id = 'one';
   private readonly content = 'hello world';
@@ -27,12 +29,20 @@ export class StorageController {
 
   @Get()
   public async read(@Res() res: Response): Promise<Response> {
-    const content = await this.storageService.get(this.bucket, this.id);
+    let status = HttpStatus.OK;
+    let error = undefined;
 
-    return res.status(HttpStatus.OK).json({
-      status: 200,
+    const content =
+      (await this.storageService.get(this.bucket, this.id).catch((e) => {
+        status = HttpStatus.NOT_FOUND;
+        error = e;
+      })) || '';
+
+    return res.status(status).json({
+      status: status,
       path: `${this.bucket}/${this.id}`,
       content: content.toString(),
+      error,
     });
   }
 
