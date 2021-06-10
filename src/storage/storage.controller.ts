@@ -1,4 +1,4 @@
-import { Controller, Get, HttpStatus, Post, Res } from '@nestjs/common';
+import { Controller, Delete, Get, HttpStatus, Post, Res } from '@nestjs/common';
 import { StorageService } from './storage.service';
 import { Response } from 'express';
 
@@ -33,6 +33,17 @@ export class StorageController {
       status: 200,
       path: `${this.bucket}/${this.id}`,
       content: content.toString(),
+    });
+  }
+
+  @Delete()
+  public async delete(@Res() res: Response): Promise<Response> {
+    const isFailed = await this.storageService.delete(this.bucket, this.id);
+
+    return res.status(HttpStatus.OK).json({
+      status: 200,
+      path: `${this.bucket}/${this.id}`,
+      success: !isFailed,
     });
   }
 }

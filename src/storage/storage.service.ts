@@ -19,4 +19,8 @@ export class StorageService {
   public async get(bucket: string, id: string): Promise<Buffer> {
     return this.storageManager.disk().getObject(bucket, id);
   }
+
+  public async delete(bucket: string, id: string): Promise<boolean> {
+    return this.storageManager.disk().deleteObject(bucket, id);
+  }
 }
