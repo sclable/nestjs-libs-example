@@ -1,11 +1,9 @@
 import { Controller, Delete, Get, HttpStatus, Post, Res } from '@nestjs/common';
 import { StorageService } from './storage.service';
-import { StorageType } from '@sclable/nestjs-storage';
 import { Response } from 'express';
 
 @Controller('storage')
 export class StorageController {
-  private readonly disk = StorageType.DUMMY;
   private readonly bucket = 'test';
   private readonly id = 'one';
   private readonly content = 'hello world';
@@ -22,8 +20,9 @@ export class StorageController {
 
     return res.status(HttpStatus.CREATED).json({
       status: 201,
-      path: `${this.bucket}/${result}`,
+      path: `${this.bucket}/${this.id}`,
       content: this.content,
+      etag: result,
     });
   }
 
