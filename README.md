@@ -20,16 +20,22 @@ $ npm run start
 ```
 
 ## Usage
+See: https://insomnia.rest  
 Import the `insomnia.yaml` file to get a list of API calls to interact with the application.  
-See: https://insomnia.rest
 
-### Storage Library Example
-To try the different storage types you have to change the respective configuration entry in the `.env` file. After changed the application must be restarted (to parse the new config).  
-The implemented examples are: `dummy|local|minio`.
+## Storage Library Implementation
+To see the integration of the storage library check the storage modul in `src/storage`.
+* StorageModule - initializes the library
+* StorageService - connects the app to the library
+* StorageController - implements usecases to be able to test the library
+
+To try the different storage types you have to change the respective configuration entry in the `.env` file. 
+The implemented examples are: `dummy`, `local`, `minio`.
 ```dotenv
 ## STORAGE_DEFAULT_DRIVER=[dummy|local|minio|azure]
 STORAGE_DEFAULT_DRIVER=local
 ``` 
+After changed the application must be restarted (to parse the new config). 
 
 To start minio in docker locally run the following command:
 ```bash
