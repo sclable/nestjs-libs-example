@@ -1,0 +1,126 @@
+_type: export
+__export_format: 4
+__export_date: 2021-06-10T14:47:53.717Z
+__export_source: insomnia.desktop.app:v2021.3.0
+resources:
+  - _id: req_b5fa995c5abe467a8bf8cfd4e0f75f7e
+    parentId: fld_9b43b78d3672481e9667625103a242ae
+    modified: 1623325105167
+    created: 1623325084733
+    url: "{{ _.API_URL }}/storage"
+    name: Create
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1623325084733
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_9b43b78d3672481e9667625103a242ae
+    parentId: wrk_b463ceceef724cb8a8d4dcc4be249b2f
+    modified: 1623325062610
+    created: 1623325062610
+    name: storage
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1623325062610
+    _type: request_group
+  - _id: wrk_b463ceceef724cb8a8d4dcc4be249b2f
+    parentId: null
+    modified: 1623325018181
+    created: 1623324906376
+    name: NestJS Libs
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_d68f5b92afa94bd8bfba1a1a57b64ef6
+    parentId: fld_9b43b78d3672481e9667625103a242ae
+    modified: 1623325164948
+    created: 1623325139899
+    url: "{{ _.API_URL }}/storage"
+    name: Read
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1623325084683
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2dcfcdfe9f0e42df91ea361915a37daf
+    parentId: fld_9b43b78d3672481e9667625103a242ae
+    modified: 1623335194958
+    created: 1623335181811
+    url: "{{ _.API_URL }}/storage"
+    name: Delete
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1623325084633
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_5443aee174034a04819591dc7ec883ba08efe07d
+    parentId: wrk_b463ceceef724cb8a8d4dcc4be249b2f
+    modified: 1623324906482
+    created: 1623324906482
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1623324906482
+    _type: environment
+  - _id: jar_5443aee174034a04819591dc7ec883ba08efe07d
+    parentId: wrk_b463ceceef724cb8a8d4dcc4be249b2f
+    modified: 1623324906483
+    created: 1623324906483
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_97e2622690a149b89887985d710bf50c
+    parentId: wrk_b463ceceef724cb8a8d4dcc4be249b2f
+    modified: 1623324906383
+    created: 1623324906383
+    fileName: NestJS Libs Example Project
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_11fbaa1c6e704570bb22044aefcd3242
+    parentId: env_5443aee174034a04819591dc7ec883ba08efe07d
+    modified: 1623325053051
+    created: 1623324917735
+    name: localhost
+    data:
+      API_URL: http://localhost:3000
+    dataPropertyOrder:
+      "&":
+        - API_URL
+    color: "#0000ff"
+    isPrivate: false
+    metaSortKey: 1623324917735
+    _type: environment
