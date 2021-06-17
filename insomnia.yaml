@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2021-06-10T14:47:53.717Z
+__export_date: 2021-06-17T14:46:08.585Z
 __export_source: insomnia.desktop.app:v2021.3.0
 resources:
   - _id: req_b5fa995c5abe467a8bf8cfd4e0f75f7e
@@ -26,13 +26,13 @@ resources:
     _type: request
   - _id: fld_9b43b78d3672481e9667625103a242ae
     parentId: wrk_b463ceceef724cb8a8d4dcc4be249b2f
-    modified: 1623325062610
+    modified: 1623940211522
     created: 1623325062610
     name: storage
     description: ""
     environment: {}
     environmentPropertyOrder: null
-    metaSortKey: -1623325062610
+    metaSortKey: -1623940206985
     _type: request_group
   - _id: wrk_b463ceceef724cb8a8d4dcc4be249b2f
     parentId: null
@@ -76,6 +76,58 @@ resources:
     headers: []
     authentication: {}
     metaSortKey: -1623325084633
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_80c97d01ac8f480aa04ee72c33856a23
+    parentId: fld_f2dd149d1f3b447c9fb3276a4f3f0fb1
+    modified: 1623940947680
+    created: 1623940215247
+    url: "{{ _.API_URL }}/queue"
+    name: send
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1623940937548
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_f2dd149d1f3b447c9fb3276a4f3f0fb1
+    parentId: wrk_b463ceceef724cb8a8d4dcc4be249b2f
+    modified: 1623940206935
+    created: 1623940206935
+    name: queue
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1623940206935
+    _type: request_group
+  - _id: req_c146b2f22fee489f9ef19ea899890e16
+    parentId: fld_f2dd149d1f3b447c9fb3276a4f3f0fb1
+    modified: 1623940944573
+    created: 1623940937497
+    url: "{{ _.API_URL }}/queue"
+    name: messages
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1623940937498
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
