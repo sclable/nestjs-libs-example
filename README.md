@@ -7,6 +7,9 @@ The goal of this repository is to provide an example project for the libraries c
   * Dummy Adapter
   * Local Adapter
   * Minio Adapter
+* `@sclable/nestjs-queue`
+  * Dummy Adapter
+  * RabbitMQ Adapter
 
 ## Installation
 ```bash
@@ -40,6 +43,30 @@ After changed the application must be restarted (to parse the new config).
 To start minio in docker locally run the following command:
 ```bash
 $ docker run --rm --name minio -d -p 9000:9000 minio/minio server /data
+```
+
+## Queue Library Implementation
+To see the integration of the queue library check the storage modul in `src/queue`.
+* QueueModule - initializes the library
+* QueueService - connects the app to the library
+* QueueController - implements usecases to be able to test the library
+
+To try the different queue types you have to change the respective configuration entry in the `.env` file. 
+The implemented examples are: `dummy` and `rabbitmq`.
+```dotenv
+## QUEUE_TYPE=[dummy|rabbitmq|azure-service-bus]
+QUEUE_TYPE=rabbitmq
+``` 
+After changed the application must be restarted (to parse the new config). 
+
+To start rabbitmq in docker locally run the following command:
+```bash
+$ docker run --rm -d --hostname my-rabbit --name rabbitmq -p 4369:4369 -p 5671:5671 -p 5672:5672 -p 15672:15672 rabbitmq:3
+```
+
+To have an admin UI available on http://localhost:15672 run the following command as well:
+```bash
+$ docker exec some-rabbit rabbitmq-plugins enable rabbitmq_management
 ```
 
 ## TODOs
