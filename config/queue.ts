@@ -1,5 +1,5 @@
-import { registerAs } from '@nestjs/config'
-import { QueueModuleOptions, QueueType } from '@sclable/nestjs-queue'
+import { registerAs } from '@nestjs/config';
+import { QueueModuleOptions, QueueType } from '@sclable/nestjs-queue';
 
 export default registerAs(
   'queue',
@@ -22,4 +22,4 @@ export default registerAs(
       },
     },
   }),
-)
+);
