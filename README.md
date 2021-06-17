@@ -66,7 +66,7 @@ $ docker run --rm -d --hostname my-rabbit --name rabbitmq -p 4369:4369 -p 5671:5
 
 To have an admin UI available on http://localhost:15672 run the following command as well:
 ```bash
-$ docker exec some-rabbit rabbitmq-plugins enable rabbitmq_management
+$ docker exec rabbitmq rabbitmq-plugins enable rabbitmq_management
 ```
 
 ## TODOs
