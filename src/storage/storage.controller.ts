@@ -1,4 +1,5 @@
 import { Controller, Delete, Get, HttpStatus, Post, Res } from '@nestjs/common';
+import { Public } from '@sclable/nestjs-auth'
 import { StorageService } from './storage.service';
 import { Response } from 'express';
 
@@ -26,6 +27,7 @@ export class StorageController {
     });
   }
 
+  @Public()
   @Get()
   public async read(@Res() res: Response): Promise<Response> {
     let status = HttpStatus.OK;
