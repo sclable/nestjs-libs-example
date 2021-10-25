@@ -1,5 +1,5 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { StorageManager, StorageType } from '@sclable/nestjs-storage';
+import { Inject, Injectable } from '@nestjs/common'
+import { StorageManager, StorageType } from '@sclable/nestjs-storage'
 
 @Injectable()
 export class StorageService {
@@ -14,7 +14,7 @@ export class StorageService {
     content: Buffer,
     disk: StorageType = undefined,
   ): Promise<string> {
-    return this.storageManager.disk(disk).putObject(bucket, id, content);
+    return this.storageManager.disk(disk).putObject(bucket, id, content)
   }
 
   public async get(
@@ -22,7 +22,7 @@ export class StorageService {
     id: string,
     disk: StorageType = undefined,
   ): Promise<Buffer> {
-    return this.storageManager.disk(disk).getObject(bucket, id);
+    return this.storageManager.disk(disk).getObject(bucket, id)
   }
 
   public async delete(
@@ -30,6 +30,6 @@ export class StorageService {
     id: string,
     disk: StorageType = undefined,
   ): Promise<boolean> {
-    return this.storageManager.disk(disk).deleteObject(bucket, id);
+    return this.storageManager.disk(disk).deleteObject(bucket, id)
   }
 }

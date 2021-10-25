@@ -1,12 +1,13 @@
-import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { StorageService } from './storage.service';
-import { StorageController } from './storage.controller';
+import { Module } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 import {
   StorageModule as SclableStorageModule,
   StorageModuleOptions,
   StorageType,
-} from '@sclable/nestjs-storage';
+} from '@sclable/nestjs-storage'
+
+import { StorageController } from './storage.controller'
+import { StorageService } from './storage.service'
 
 @Module({
   imports: [
@@ -23,4 +24,5 @@ import {
   providers: [StorageService],
   controllers: [StorageController],
 })
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class StorageModule {}

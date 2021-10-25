@@ -1,12 +1,13 @@
-import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { Module } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 import {
-  QueueModule as SclableQueueModule,
   QueueModuleOptions,
   QueueType,
-} from '@sclable/nestjs-queue';
-import { QueueService } from './queue.service';
-import { QueueController } from './queue.controller';
+  QueueModule as SclableQueueModule,
+} from '@sclable/nestjs-queue'
+
+import { QueueController } from './queue.controller'
+import { QueueService } from './queue.service'
 
 @Module({
   imports: [
@@ -22,4 +23,5 @@ import { QueueController } from './queue.controller';
   providers: [QueueService],
   controllers: [QueueController],
 })
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class QueueModule {}
