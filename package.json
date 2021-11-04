@@ -39,7 +39,7 @@
     "@nestjs/cli": "^7.6.0",
     "@nestjs/schematics": "^7.3.0",
     "@nestjs/testing": "^7.6.15",
-    "@sclable/lint": "^1.6.10",
+    "@sclable/lint": "^1.7.0",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.22",
     "@types/minio": "^7.0.7",
