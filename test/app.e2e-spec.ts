@@ -1,5 +1,8 @@
 import { INestApplication } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 import { Test as NestTest, TestingModule } from '@nestjs/testing'
+import { QueueType } from '@sclable/nestjs-queue'
+import { StorageType } from '@sclable/nestjs-storage'
 import { SuperTest, Test } from 'supertest'
 
 import { AppModule } from '../src/app.module'
@@ -7,6 +10,27 @@ import { AppModule } from '../src/app.module'
 describe('AppController (e2e)', () => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const supertest = require('supertest')
+  const testConfig = {
+    auth: {
+      jwtSecret: 'test-secret',
+      jwtExpiresIn: '1h'
+    },
+    queue: {
+      type: QueueType.DUMMY,
+      config: {
+        [QueueType.DUMMY]: { enabled: true }
+      }
+    },
+    storage: {
+      defaultDriver: StorageType.DUMMY,
+      config: {
+        [StorageType.DUMMY]: { enabled: true }
+      }
+    }
+  }
+  const testConfigService = {
+    get: (config: string) => testConfig[config]
+  }
   let app: INestApplication
   let testRequest: SuperTest<Test>
   let token: string
@@ -14,7 +38,8 @@ describe('AppController (e2e)', () => {
   beforeAll(async () => {
     const moduleFixture: TestingModule = await NestTest.createTestingModule({
       imports: [AppModule],
-    }).compile()
+    }).overrideProvider(ConfigService).useValue(testConfigService)
+      .compile()
 
     app = moduleFixture.createNestApplication()
     await app.init()
