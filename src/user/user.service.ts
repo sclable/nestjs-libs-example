@@ -9,6 +9,16 @@ import { User } from './user.entity'
 export class UserService implements UserServiceContract<User> {
   private users: User[] = []
 
+  constructor() {
+    const user = new User()
+    user.id = uuidv4()
+    user.externalId = uuidv4()
+    user.username = 'testuser'
+    user.firstName = 'Test'
+    user.lastName = 'User'
+    this.users.push(user)
+  }
+
   public getOneById(userId: string): User | Promise<User | null> | null {
     return this.users.find(user => user.id === userId) ?? null
   }
@@ -20,15 +30,6 @@ export class UserService implements UserServiceContract<User> {
     _password: string,
   ): User | Promise<User | null> | null {
     let user = this.users.find(user => user.username === username)
-    if (!user) {
-      user = new User()
-      user.id = uuidv4()
-      user.externalId = uuidv4()
-      user.username = 'testuser'
-      user.firstName = 'Test'
-      user.lastName = 'User'
-      this.users.push(user)
-    }
 
     return user
   }

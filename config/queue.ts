@@ -9,6 +9,7 @@ export default registerAs(
       [QueueType.DUMMY]: {
         enabled: true,
       },
+      [QueueType.INMEMORY]: {},
       [QueueType.RABBITMQ]: {
         hostname: process.env.QUEUE_RABBITMQ_HOSTNAME || 'localhost',
         port: +(process.env.QUEUE_RABBITMQ_PORT || 5672),

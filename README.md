@@ -3,6 +3,9 @@
 The goal of this repository is to provide an example project for the libraries can be found in the `sclable/nestjs-libs` reposotory.
 
 ### Implemented library examples:
+* `@sclable/nestjs-auth`
+  * Local/JWT Guard
+  * Keycloak Guard
 * `@sclable/nestjs-storage`
   * Dummy Adapter
   * Local Adapter
@@ -26,6 +29,15 @@ $ npm run start
 See: https://insomnia.rest  
 Import the `insomnia.yaml` file to get a list of API calls to interact with the application.  
 
+For local tryout we suggest running docker compose for RabbitMQ, Minio and Keycloak server
+```bash
+docker-compose up -d
+```
+
+## Authentication Library Implementation
+To see the integration of the authentication library check the authentication module in `src/auth`. There is a local
+authentication implementation, using the library-built-in controllers, but there is also commented out code for keycloak.
+
 ## Storage Library Implementation
 To see the integration of the storage library check the storage modul in `src/storage`.
 * StorageModule - initializes the library
@@ -39,11 +51,6 @@ The implemented examples are: `dummy`, `local`, `minio`.
 STORAGE_DEFAULT_DRIVER=local
 ``` 
 After changed the application must be restarted (to parse the new config). 
-
-To start minio in docker locally run the following command:
-```bash
-$ docker run --rm --name minio -d -p 9000:9000 minio/minio server /data
-```
 
 ## Queue Library Implementation
 To see the integration of the queue library check the storage modul in `src/queue`.
@@ -59,18 +66,7 @@ QUEUE_TYPE=rabbitmq
 ``` 
 After changed the application must be restarted (to parse the new config). 
 
-To start rabbitmq in docker locally run the following command:
+To have an admin UI available on http://localhost:15672 run the following command:
 ```bash
-$ docker run --rm -d --hostname my-rabbit --name rabbitmq -p 4369:4369 -p 5671:5671 -p 5672:5672 -p 15672:15672 rabbitmq:3
+$ docker exec <rabbitmq-container-name> rabbitmq-plugins enable rabbitmq_management
 ```
-
-To have an admin UI available on http://localhost:15672 run the following command as well:
-```bash
-$ docker exec rabbitmq rabbitmq-plugins enable rabbitmq_management
-```
-
-## TODOs
-
-When libs are published
-* correct library versions in package.json
-* remove .npmrc when
