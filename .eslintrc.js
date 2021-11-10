@@ -1,24 +1,8 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module',
-  },
-  plugins: ['@typescript-eslint/eslint-plugin'],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['./node_modules/@sclable/eslint-config/index.js'],
   root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['!.eslintrc.js', 'node_modules', 'dist'],
   rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
+    // override or extend rules coming from `@sclable/lint` as needed
   },
-};
+}
