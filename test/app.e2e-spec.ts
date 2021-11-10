@@ -5,6 +5,7 @@ import { SuperTest, Test } from 'supertest'
 import { AppModule } from '../src/app.module'
 
 describe('AppController (e2e)', () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const supertest = require('supertest')
   let app: INestApplication
   let testRequest: SuperTest<Test>
@@ -19,11 +20,17 @@ describe('AppController (e2e)', () => {
     await app.init()
     testRequest = supertest(app.getHttpServer())
 
-    const loginResponse = await testRequest.post('/auth/login').send({ username: 'testuser', password: 'any' })
+    const loginResponse = await testRequest
+      .post('/auth/login')
+      .send({ username: 'testuser', password: 'any' })
     token = loginResponse.body.accessToken
   })
 
   it('/ (GET)', () => {
-    return testRequest.get('/').set({ Authorization: `Bearer ${token}`}).expect(200).expect('Hello World!')
+    return testRequest
+      .get('/')
+      .set({ Authorization: `Bearer ${token}` })
+      .expect(200)
+      .expect('Hello World!')
   })
 })

@@ -9,7 +9,7 @@ import { User } from './user.entity'
 export class UserService implements UserServiceContract<User> {
   private users: User[] = []
 
-  constructor() {
+  public constructor() {
     const user = new User()
     user.id = uuidv4()
     user.externalId = uuidv4()
@@ -29,7 +29,7 @@ export class UserService implements UserServiceContract<User> {
     username: string,
     _password: string,
   ): User | Promise<User | null> | null {
-    let user = this.users.find(user => user.username === username)
+    const user = this.users.find(user => user.username === username)
 
     return user
   }
