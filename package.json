@@ -30,12 +30,12 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^8.2.0",
+    "@nestjs/common": "^8.2.4",
     "@nestjs/config": "^1.0.1",
-    "@nestjs/core": "^8.2.0",
+    "@nestjs/core": "^8.2.4",
     "@nestjs/jwt": "^8.0.0",
     "@nestjs/passport": "^8.0.1",
-    "@nestjs/platform-express": "^8.2.0",
+    "@nestjs/platform-express": "^8.2.4",
     "@sclable/nestjs-auth": "^1.1.0",
     "@sclable/nestjs-queue": "^1.1.0",
     "@sclable/nestjs-storage": "^1.1.0",
@@ -45,9 +45,9 @@
     "rxjs": "^7.4.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^14.1.0",
-    "@commitlint/config-conventional": "^14.1.0",
-    "@commitlint/prompt-cli": "^14.1.0",
+    "@commitlint/cli": "^16.0.1",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/prompt-cli": "^16.0.0",
     "@nestjs/cli": "^8.1.4",
     "@nestjs/schematics": "^8.0.4",
     "@nestjs/testing": "^8.2.0",
