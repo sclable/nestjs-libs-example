@@ -13,23 +13,23 @@ describe('AppController (e2e)', () => {
   const testConfig = {
     auth: {
       jwtSecret: 'test-secret',
-      jwtExpiresIn: '1h'
+      jwtExpiresIn: '1h',
     },
     queue: {
       type: QueueType.DUMMY,
       config: {
-        [QueueType.DUMMY]: { enabled: true }
-      }
+        [QueueType.DUMMY]: { enabled: true },
+      },
     },
     storage: {
       defaultDriver: StorageType.DUMMY,
       config: {
-        [StorageType.DUMMY]: { enabled: true }
-      }
-    }
+        [StorageType.DUMMY]: { enabled: true },
+      },
+    },
   }
   const testConfigService = {
-    get: (config: string) => testConfig[config]
+    get: (config: string) => testConfig[config],
   }
   let app: INestApplication
   let testRequest: SuperTest<Test>
@@ -38,7 +38,9 @@ describe('AppController (e2e)', () => {
   beforeAll(async () => {
     const moduleFixture: TestingModule = await NestTest.createTestingModule({
       imports: [AppModule],
-    }).overrideProvider(ConfigService).useValue(testConfigService)
+    })
+      .overrideProvider(ConfigService)
+      .useValue(testConfigService)
       .compile()
 
     app = moduleFixture.createNestApplication()
