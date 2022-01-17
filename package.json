@@ -42,13 +42,13 @@
     "minio": "7.0.26",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
-    "rxjs": "7.5.1"
+    "rxjs": "7.5.2"
   },
   "devDependencies": {
     "@commitlint/cli": "16.0.2",
     "@commitlint/config-conventional": "16.0.0",
     "@commitlint/prompt-cli": "16.0.0",
-    "@nestjs/cli": "8.1.6",
+    "@nestjs/cli": "8.2.0",
     "@nestjs/schematics": "8.0.5",
     "@nestjs/testing": "8.2.5",
     "@sclable/lint": "1.7.3",
