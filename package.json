@@ -45,7 +45,7 @@
     "rxjs": "7.5.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "16.0.2",
+    "@commitlint/cli": "16.1.0",
     "@commitlint/config-conventional": "16.0.0",
     "@commitlint/prompt-cli": "16.0.0",
     "@nestjs/cli": "8.2.0",
