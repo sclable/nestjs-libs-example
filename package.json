@@ -36,7 +36,7 @@
     "@nestjs/jwt": "8.0.1",
     "@nestjs/passport": "8.2.1",
     "@nestjs/platform-express": "8.4.6",
-    "@sclable/nestjs-auth": "1.1.4",
+    "@sclable/nestjs-auth": "1.1.5",
     "@sclable/nestjs-queue": "1.1.5",
     "@sclable/nestjs-storage": "1.1.4",
     "minio": "7.0.28",
